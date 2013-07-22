@@ -5,28 +5,38 @@ namespace DavidCollinsMonth3CMinesweeper.Board
 	public class GameBoard
 	{
 		SquareFactory factory = new SquareFactory();
-		Square[,] squares;
+		Square[,] squareObjs;
+        private int rows;
+        private int columns;
 
 		public GameBoard (int rows, int columns, char[] squares)
 		{
 			// initialize this
-			squares = new Square[rows,columns];
+			squareObjs = new Square[rows,columns];
+
+            this.Rows = rows;
+            this.Columns = columns;
 
 			//char[,] board = new char[rows,columns];
 			int currentSquare = 0;
 			for (int row = 0; row < rows; row++) {
 				for (int column = 0; column < columns; column++) {
 					//board[row,column] = squares[currentSquare++];
-					this.addSquare(
-						factory.makeSquare(squares[currentSquare] == '*' ? 1 : 0)
-					);
+					squareObjs[row,column] = 
+						factory.makeSquare(squares[currentSquare] == '*' ? 1 : 0);
 				}
 			}
 		}
 
-		private void addSquare(Square s) {
-			//hmm..what to do here?
-		}
+        public int Rows {
+            get { return rows; }
+            set { this.rows = value; }
+        }
+
+        public int Columns {
+            get { return this.columns; }
+            set { this.columns = value; }
+        }
 	}
 }
 

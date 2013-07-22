@@ -25,5 +25,14 @@ namespace DavidCollinsMonth3CMinesweeper.Board
 			char[] pieces = parts[1].ToCharArray();
 			board = new GameBoard(int.Parse(dimensions[0]), int.Parse(dimensions[1]), pieces);
 		}
+
+        public void solve ()
+        {
+            for (int row = 0; row < this.board.Rows; row++) {
+                for (int column = 0; column < this.board.Columns; columns++) {
+                    
+                }
+            }
+        }
 	}
 }
